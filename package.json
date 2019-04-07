@@ -1,0 +1,24 @@
+{
+  "name": "web-shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristijan-pajtasev/web-shop.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kristijan-pajtasev/web-shop/issues"
+  },
+  "homepage": "https://github.com/kristijan-pajtasev/web-shop#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
