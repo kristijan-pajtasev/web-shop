@@ -1,5 +1,13 @@
 import React from 'react';
+import ItemsList from './ItemsList';
+import items from './mocks/items';
 
-const WebShop = () => <div>Web shop</div>;
+const WebShop = () => {
+    return (
+        <div>Web shop
+            <ItemsList items={items} />
+        </div>
+    )
+};
 
 export default WebShop;
