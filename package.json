@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "./node_modules/.bin/eslint .eslintrc.js",
     "start-dev": "parcel dev/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,10 +23,13 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "^24.0.0",
     "babel-plugin-css-modules-transform": "^1.6.2",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.8.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.12.4",
     "express": "^4.16.4",
     "jest": "^24.0.0",
     "parcel-bundler": "^1.12.3",
