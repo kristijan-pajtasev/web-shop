@@ -1,0 +1,14 @@
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "plugins": [
+    [
+      "css-modules-transform",
+      {
+        "generateScopedName": "[hash:8]",
+        "extensions": [
+          ".css"
+        ]
+      }
+    ]
+  ]
+}
