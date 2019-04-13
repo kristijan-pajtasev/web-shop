@@ -5,6 +5,7 @@ const ItemsList = ({items}) => {
     const itemsList = items.map((item, index) => (
         <li key={`item-${index}`}>
             <div>{item.productName}</div>
+            <button>Add to cart</button>
         </li>
     ));
     return <ul>
