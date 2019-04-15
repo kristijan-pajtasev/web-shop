@@ -2,21 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ShoppingList from './list';
 
-const ShoppingCart = ({items}) => {
+class ShoppingCart extends React.PureComponent {
+    constructor() {
+        super();
+        this.state = {isOpen: false}
+    }
 
-    const total = items.reduce((t, p) => t + parseFloat(p.price), 0);
+    toggleDropdown() {
+        this.setState({isOpen: !this.state.isOpen});
+    }
 
-    return (
-        <div>
-            <div>Cart:</div>
+    render() {
+        const {items} = this.props;
+        const {isOpen} = this.state;
+        const total = items.reduce((t, p) => t + parseFloat(p.price), 0);
+        const totalItems = items.length;
 
-            <ShoppingList products={items} />
+        return (
+            <div>
+                <div onClick={this.toggleDropdown.bind(this)}>Cart ({totalItems}):</div>
 
-            <div>Total: {total}</div>
+                {isOpen ? <ShoppingList products={items}/> : null}
 
-            <div><button>Buy</button></div>
-        </div>
-    )
+                <div>Total: {total}</div>
+
+                <div>
+                    <button>Buy</button>
+                </div>
+            </div>
+        )
+    }
 };
 
 ShoppingCart.propTypes = {
