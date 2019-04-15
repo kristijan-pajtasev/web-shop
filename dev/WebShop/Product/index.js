@@ -5,6 +5,8 @@ const Product = ({ product, addProductToCart }) => {
     return (
         <div>
             <div>{product.productName}</div>
+            <div>Price: {product.price}</div>
+            <div>Is Allergic: {product.isAllergic}</div>
             <button onClick={addToCart.bind(this, product)}>Add to cart</button>
         </div>
     )
