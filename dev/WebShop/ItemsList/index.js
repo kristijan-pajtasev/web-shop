@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Product from '../Product';
 
 const ItemsList = ({items, addItemToCart}) => {
-    const addToCart = item => addItemToCart(item);
 
     const itemsList = items.map((item, index) => (
         <li key={`item-${index}`}>
-            <div>{item.productName}</div>
-            <button onClick={addToCart.bind(this, item)}>Add to cart</button>
+            <Product product={item} addProductToCart={addItemToCart}/>
         </li>
     ));
     return <ul>
