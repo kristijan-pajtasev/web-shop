@@ -7,9 +7,14 @@ const RecomendedItems = ({items}) => {
             <div>{item.productName}</div>
         </li>
     ));
-    return <ul>
-        {itemsList}
-    </ul>
+    return (
+        <div>
+            <div>Recommendations</div>
+            <ul>
+                {itemsList}
+            </ul>
+        </div>
+    )
 };
 
 RecomendedItems.propTypes = {
