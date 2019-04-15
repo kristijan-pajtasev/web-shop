@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prod:build": "parcel build dev/index.html",
     "cypres": "./node_modules/.bin/cypress open",
     "lint": "./node_modules/.bin/eslint .eslintrc.js",
     "start-dev": "parcel dev/index.html",
