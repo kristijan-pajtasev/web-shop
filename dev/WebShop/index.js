@@ -4,14 +4,26 @@ import ShoppingCart from './ShoppingCart';
 import RecomendedItems from './RecomendedItems';
 import items from './mocks/items';
 
-const WebShop = () => {
-    return (
-        <div>Web shop
-            <ShoppingCart items={items}/>
-            <ItemsList items={items}/>
-            <RecomendedItems items={items}/>
-        </div>
-    )
+class WebShop extends React.PureComponent {
+    constructor() {
+        super();
+        this.state = {
+            shoppingCart: []
+        };
+    }
+    addItemToCart(item){
+        this.setState({shoppingCart: [...this.state.shoppingCart, item]})
+    }
+    
+    render() {
+        return (
+            <div>Web shop
+                <ShoppingCart items={this.state.shoppingCart}/>
+                <ItemsList addItemToCart={this.addItemToCart.bind(this)} items={items}/>
+                <RecomendedItems items={items}/>
+            </div>
+        )
+    }
 };
 
 export default WebShop;
