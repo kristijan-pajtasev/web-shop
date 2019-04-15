@@ -7,8 +7,9 @@
     "cypres": "./node_modules/.bin/cypress open",
     "lint": "./node_modules/.bin/eslint .eslintrc.js",
     "prod:build": "parcel build dev/index.html",
+    "prod:show": "pm2 show",
     "prod:start": "pm2 start server.js",
-    "prod:stop": "pm2 stop script.js",
+    "prod:stop": "pm2 stop server",
     "start-dev": "parcel dev/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
