@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import RecommendedProduct from '../RecommendedProduct'
 
 const RecomendedItems = ({items}) => {
     const itemsList = items.map((item, index) => (
         <li key={`item-${index}`}>
-            <div>{item.productName}</div>
+            <RecommendedProduct product={item} />
         </li>
     ));
     return (
