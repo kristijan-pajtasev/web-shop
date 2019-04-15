@@ -13,7 +13,6 @@ const ShoppingCart = ({items}) => {
         productName: e[0],
         amount: e[1]
     }));
-    console.log(distinctItems)
 
     const itemsList = distinctItems.map((item, index) => (
         <li key={`item-${index}`}>
