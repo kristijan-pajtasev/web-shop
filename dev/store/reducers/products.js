@@ -1,3 +1,5 @@
 export default (state = {}, action = {}) => {
-    return state
+    return {
+        products: []
+    }
 }

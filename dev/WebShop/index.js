@@ -3,6 +3,8 @@ import ItemsList from './ItemsList';
 import ShoppingCart from './ShoppingCart';
 import RecomendedItems from './RecomendedItems';
 import items from './mocks/items';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
 class WebShop extends React.PureComponent {
     constructor() {
@@ -16,14 +18,26 @@ class WebShop extends React.PureComponent {
     }
     
     render() {
+        const { products } = this.props;
+        console.log(products)
         return (
             <div>Web shop
                 <ShoppingCart items={this.state.shoppingCart}/>
-                <ItemsList addItemToCart={this.addItemToCart.bind(this)} items={items}/>
+                <ItemsList addItemToCart={this.addItemToCart.bind(this)} items={products.products}/>
                 <RecomendedItems items={items}/>
             </div>
         )
     }
 };
 
-export default WebShop;
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators({  }, dispatch)
+});
+
+const mapStateToProps = state => {
+    const { products } = state;
+    return { products};
+};
+
+module.exports = connect(mapStateToProps, mapDispatchToProps)(WebShop);
