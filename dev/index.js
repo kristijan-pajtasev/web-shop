@@ -1,6 +1,15 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import ReactDOM from 'react-dom';
 import WebShop from './providers'
 
-ReactDOM.render(<WebShop />, document.getElementById('web-shop-container'));
+const App = () => {
+    return (
+        <Router>
+            <Route path="/" exact component={WebShop} />
+        </Router>
+    )
+};
+
+ReactDOM.render(<App />, document.getElementById('web-shop-container'));
 
