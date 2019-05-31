@@ -15,7 +15,6 @@ class ShoppingCart extends React.PureComponent {
     render() {
         const {items} = this.props;
         const {isOpen} = this.state;
-        const total = items.reduce((t, p) => t + parseFloat(p.price), 0);
         const totalItems = items.length;
 
         return (
@@ -24,15 +23,13 @@ class ShoppingCart extends React.PureComponent {
 
                 {isOpen ? <ShoppingList products={items}/> : null}
 
-                <div>Total: {total}</div>
-
                 <div>
                     <button>Buy</button>
                 </div>
             </div>
         )
     }
-};
+}
 
 ShoppingCart.propTypes = {
     items: PropTypes.array
