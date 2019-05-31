@@ -2,8 +2,8 @@ import React from 'react';
 import ItemsList from './ItemsList';
 import ShoppingCart from './ShoppingCart';
 import RecomendedItems from './RecomendedItems';
-import { fetchProducts } from '../actions/products';
-import { addToCart } from '../actions/shopping_cart';
+import {fetchProducts} from '../actions/products';
+import {addToCart} from '../actions/shopping_cart';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
@@ -15,18 +15,22 @@ class WebShop extends React.PureComponent {
         };
         props.actions.fetchProducts();
     }
-    addItemToCart(item){
+
+    addItemToCart(item) {
         this.setState({shoppingCart: [...this.state.shoppingCart, item]})
     }
-    
+
     render() {
-        const { products } = this.props;
+        const {products} = this.props;
         console.log(products)
-        if(!products.products) return null;
+        if (!products.products) return null;
         return (
             <div>Web shop
                 <ShoppingCart items={this.props.shoppingCart}/>
-                <ItemsList addItemToCart={this.props.actions.addToCart} items={products.products}/>
+                <ItemsList addItemToCart={this.props.actions.addToCart}
+                           items={products.products}
+                           page={products.page}
+                           total={products.total} />
                 <RecomendedItems items={products.products}/>
             </div>
         )
@@ -35,12 +39,12 @@ class WebShop extends React.PureComponent {
 
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({ fetchProducts, addToCart }, dispatch)
+    actions: bindActionCreators({fetchProducts, addToCart}, dispatch)
 });
 
 const mapStateToProps = state => {
-    const { products, shoppingCart } = state;
-    return { products, shoppingCart };
+    const {products, shoppingCart} = state;
+    return {products, shoppingCart};
 };
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(WebShop);
