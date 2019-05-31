@@ -30,7 +30,8 @@ class WebShop extends React.PureComponent {
                 <ItemsList addItemToCart={this.props.actions.addToCart}
                            items={products.products}
                            page={products.page}
-                           total={products.total} />
+                           total={products.total}
+                           getProducts={this.props.actions.fetchProducts}/>
                 <RecomendedItems items={products.products}/>
             </div>
         )
