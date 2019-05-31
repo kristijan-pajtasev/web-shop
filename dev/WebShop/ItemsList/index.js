@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Product from '../Product';
+import './ItemsList.less'
 
 const ItemsList = ({items, addItemToCart}) => {
 
@@ -9,9 +10,11 @@ const ItemsList = ({items, addItemToCart}) => {
             <Product product={item} addProductToCart={addItemToCart}/>
         </li>
     ));
-    return <ul>
-        {itemsList}
-    </ul>
+    return (
+        <ul className="items-list">
+            {itemsList}
+        </ul>
+    )
 };
 
 ItemsList.propTypes = {

@@ -38,6 +38,7 @@
     "eslint-plugin-react": "^7.12.4",
     "express": "^4.16.4",
     "jest": "^24.0.0",
+    "less": "^3.9.0",
     "parcel-bundler": "^1.12.3",
     "pm2": "^3.5.0",
     "prop-types": "^15.7.2",
