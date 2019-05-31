@@ -22,7 +22,6 @@ class WebShop extends React.PureComponent {
 
     render() {
         const {products} = this.props;
-        console.log(products)
         if (!products.products) return null;
         return (
             <div>Web shop
