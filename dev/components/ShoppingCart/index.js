@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-class Navigation extends React.PureComponent {
+class ShoppingCart extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {};
@@ -13,8 +13,9 @@ class Navigation extends React.PureComponent {
 
         return (
             <div>
-                <a href='/'>Home</a>
-                <a href='/shopping-cart'>Cart</a>
+                <ul>
+                    {shoppingCart.map(product => <li>{product.product_id}</li>)}
+                </ul>
                 Shopping cart: {shoppingCart.length}
             </div>
         )
@@ -30,4 +31,4 @@ const mapStateToProps = state => {
     return { shoppingCart };
 };
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(Navigation);
+module.exports = connect(mapStateToProps, mapDispatchToProps)(ShoppingCart);
