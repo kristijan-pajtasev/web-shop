@@ -11,7 +11,17 @@ export const addToCart = (product_id) => {
         };
         fetch("http://127.0.0.1:9000/shopping-cart", options)
             .then(res => {
-                dispatch({type: "ADD_TO_CART", product: product_id })
+                dispatch({type: "ADD_TO_CART", product: product_id})
             })
+    }
+};
+
+export const getCart = () => {
+    return dispatch => {
+        fetch("http://127.0.0.1:9000/shopping-cart")
+            .then(res => res.json().then(products => {
+                    dispatch({type: "SET_CART", products})
+                }
+            ))
     }
 };

@@ -1,20 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { getCart } from '../../actions/shopping_cart';
 
 class ShoppingCart extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {};
+        props.actions.getCart();
     }
 
     render() {
         const { shoppingCart, actions } = this.props;
 
+        if(!shoppingCart) return null;
+
         return (
             <div>
                 <ul>
-                    {shoppingCart.map(product => <li>{product.product_id}</li>)}
+                    {shoppingCart.map((product, i) => <li key={`cart-item-${i}`}>{product.product_id}</li>)}
                 </ul>
                 Shopping cart: {shoppingCart.length}
             </div>
@@ -23,7 +27,7 @@ class ShoppingCart extends React.PureComponent {
 }
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({  }, dispatch)
+    actions: bindActionCreators({ getCart }, dispatch)
 });
 
 const mapStateToProps = state => {

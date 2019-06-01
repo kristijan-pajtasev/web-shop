@@ -1,16 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { getCart } from '../../actions/shopping_cart'
 
 class Navigation extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {};
+        props.actions.getCart();
     }
 
     render() {
         const { shoppingCart } = this.props;
-        const shoppingCartSize = shoppingCart.length;
+        const shoppingCartSize = shoppingCart ? shoppingCart.length : "";
 
         return (
             <div>
@@ -22,7 +24,7 @@ class Navigation extends React.PureComponent {
 }
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({  }, dispatch)
+    actions: bindActionCreators({ getCart }, dispatch)
 });
 
 const mapStateToProps = state => {
