@@ -1,5 +1,17 @@
-export const addToCart = (product) => {
+export const addToCart = (product_id) => {
     return dispatch => {
-        dispatch({type: "ADD_TO_CART", product})
+        const data = {
+            customer_id: 1,
+            product_id
+        };
+        const options = {
+            method: "post", headers: {
+                "Content-Type": "application/json",
+            }, body: JSON.stringify(data)
+        };
+        fetch("http://127.0.0.1:9000/shopping-cart", options)
+            .then(res => {
+                dispatch({type: "ADD_TO_CART", product: product_id })
+            })
     }
 };
