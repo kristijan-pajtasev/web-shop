@@ -9,13 +9,13 @@ class Navigation extends React.PureComponent {
     }
 
     render() {
-        const { shoppingCart, actions } = this.props;
+        const { shoppingCart } = this.props;
+        const shoppingCartSize = shoppingCart.length;
 
         return (
             <div>
                 <a href='/'>Home</a>
-                <a href='/shopping-cart'>Cart</a>
-                Shopping cart: {shoppingCart.length}
+                <a href='/shopping-cart'>Cart ({shoppingCartSize})</a>
             </div>
         )
     }
