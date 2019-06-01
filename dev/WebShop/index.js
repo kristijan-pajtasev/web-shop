@@ -1,6 +1,5 @@
 import React from 'react';
 import ItemsList from './ItemsList';
-import ShoppingCart from './ShoppingCart';
 import RecomendedItems from './RecomendedItems';
 import {fetchProducts} from '../actions/products';
 import {addToCart} from '../actions/shopping_cart';
@@ -25,7 +24,6 @@ class WebShop extends React.PureComponent {
         if (!products.products) return null;
         return (
             <div>Web shop
-                <ShoppingCart items={this.props.shoppingCart}/>
                 <ItemsList addItemToCart={this.props.actions.addToCart}
                            items={products.products}
                            page={products.page}

@@ -1,18 +1,17 @@
 import React, { PureComponent } from "react";
 import store from '../store';
 import { Provider } from 'react-redux';
-import Product from '../components/Product';
+import Navigation from '../components/Navigation';
 
 
-class ProductProvider extends PureComponent {
+class NavigationProvider extends PureComponent {
     render() {
-        const { id } = this.props.match.params;
         return (
             <Provider store={store}>
-                <Product productId={id} />
+                <Navigation />
             </Provider>
         )
     }
 }
 
-export default ProductProvider;
+export default NavigationProvider;
