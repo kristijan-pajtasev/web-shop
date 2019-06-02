@@ -14,7 +14,6 @@ export const addToCart = (product) => {
         };
         fetch(`${config.api}/shopping-cart`, options)
             .then(res => {
-                // dispatch({type: "ADD_TO_CART", product})
                 getCart()(dispatch);
             })
     }
