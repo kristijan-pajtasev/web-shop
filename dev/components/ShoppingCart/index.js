@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getCart } from '../../actions/shopping_cart';
+import { getCart, buy } from '../../actions/shopping_cart';
 
 class ShoppingCart extends React.PureComponent {
     constructor(props) {
@@ -20,14 +20,14 @@ class ShoppingCart extends React.PureComponent {
                 <ul>
                     {shoppingCart.map((product, i) => <li key={`cart-item-${i}`}>{product.product_id}</li>)}
                 </ul>
-                Shopping cart: {shoppingCart.length}
+                <button onClick={actions.buy}>Buy</button>
             </div>
         )
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({ getCart }, dispatch)
+    actions: bindActionCreators({ getCart, buy }, dispatch)
 });
 
 const mapStateToProps = state => {
