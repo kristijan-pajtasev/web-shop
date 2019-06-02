@@ -22,7 +22,7 @@ export const fetchProduct = (productId) => {
 
 export const setSearchQuery = (search) => {
     return dispatch => {
-        dispatch({ type: "SET_QUERY", search })
+        dispatch({ type: "SET_QUERY", search });
         fetchProducts(1, search)(dispatch);
     }
 };

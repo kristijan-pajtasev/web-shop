@@ -1,8 +1,9 @@
 import {createStore, applyMiddleware, compose, combineReducers} from "redux";
 import thunkMiddleware from 'redux-thunk';
-import products from './reducers/products'
-import product from './reducers/product'
-import shoppingCart from './reducers/shopping_cart'
+import products from './reducers/products';
+import product from './reducers/product';
+import shoppingCart from './reducers/shopping_cart';
+import filters from './reducers/filters';
 
-const reducer = combineReducers({ products, shoppingCart, product });
+const reducer = combineReducers({ products, shoppingCart, product, filters });
 export default compose(applyMiddleware(thunkMiddleware))(createStore)(reducer);

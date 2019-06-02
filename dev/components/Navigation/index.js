@@ -8,7 +8,7 @@ class Navigation extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            search: ""
+            search: props.filters.search || ""
         };
         props.actions.getCart();
     }
@@ -43,8 +43,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => {
-    const { shoppingCart } = state;
-    return { shoppingCart };
+    const { shoppingCart, filters } = state;
+    return { shoppingCart, filters };
 };
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(Navigation);

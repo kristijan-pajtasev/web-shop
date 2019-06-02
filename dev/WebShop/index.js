@@ -20,13 +20,14 @@ class WebShop extends React.PureComponent {
     }
 
     render() {
-        const {products} = this.props;
+        const { products, filters } = this.props;
         if (!products.products) return null;
         return (
             <div>Web shop
                 <ItemsList addItemToCart={this.props.actions.addToCart}
                            items={products.products}
                            page={products.page}
+                           search={filters.search}
                            total={products.total}
                            getProducts={this.props.actions.fetchProducts}/>
                 <RecomendedItems items={products.products}/>
@@ -41,8 +42,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => {
-    const {products, shoppingCart} = state;
-    return {products, shoppingCart};
+    const { products, shoppingCart, filters } = state;
+    return { products, shoppingCart, filters };
 };
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(WebShop);

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Product from '../Product';
 import './ItemsList.less'
 
-const ItemsList = ({items, total, page, addItemToCart, getProducts}) => {
+const ItemsList = ({items, total, page, addItemToCart, getProducts, search}) => {
 
     const itemsList = items.map((item, index) => (
         <li key={`item-${index}`}>
@@ -11,8 +11,8 @@ const ItemsList = ({items, total, page, addItemToCart, getProducts}) => {
         </li>
     ));
 
-    const nextPage = () => getProducts(page + 1);
-    const prevPage = () => getProducts(page - 1);
+    const nextPage = () => getProducts(page + 1, search);
+    const prevPage = () => getProducts(page - 1, search);
     const firstPage = 1;
     const lastPage = Math.ceil(total / 10);
 
