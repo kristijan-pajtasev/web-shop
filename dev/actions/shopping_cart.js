@@ -1,5 +1,7 @@
+import config from '../config';
+
 export const addToCart = (product) => {
-    const { product_id } =product;
+    const { product_id } = product;
     return dispatch => {
         const data = {
             customer_id: 1,
@@ -10,7 +12,7 @@ export const addToCart = (product) => {
                 "Content-Type": "application/json",
             }, body: JSON.stringify(data)
         };
-        fetch("http://127.0.0.1:9000/shopping-cart", options)
+        fetch(`${config.api}/shopping-cart`, options)
             .then(res => {
                 // dispatch({type: "ADD_TO_CART", product})
                 getCart()(dispatch);
@@ -20,7 +22,7 @@ export const addToCart = (product) => {
 
 export const getCart = () => {
     return dispatch => {
-        fetch("http://127.0.0.1:9000/shopping-cart")
+        fetch(`${config.api}/shopping-cart`)
             .then(res => res.json().then(products => {
                     dispatch({type: "SET_CART", products})
                 }
@@ -35,7 +37,7 @@ export const buy = () => {
         }
     };
     return dispatch => {
-        fetch("http://127.0.0.1:9000/shopping-cart/purchase", options)
+        fetch(`${config.api}/shopping-cart/purchase`, options)
             .then(res =>
                 dispatch({type: "EMPTY_CART"})
             )
@@ -53,7 +55,7 @@ export const removeFromCart = (product_id) => {
         }, body: JSON.stringify(data)
     };
     return dispatch => {
-        fetch("http://127.0.0.1:9000/shopping-cart", options)
+        fetch(`${config.api}/shopping-cart`, options)
             .then(res =>
                 dispatch({type: "REMOVE_ITEM", product_id})
             )
