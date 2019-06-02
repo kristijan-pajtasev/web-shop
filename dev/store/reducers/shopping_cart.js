@@ -6,6 +6,8 @@ export default (state = null, action = {}) => {
             return action.products;
         case "EMPTY_CART":
             return null;
+        case "REMOVE_ITEM":
+            return state.filter(product => product.product_id !== action.product_id);
         default:
             return state;
     }
