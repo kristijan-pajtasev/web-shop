@@ -20,7 +20,7 @@ class ShoppingCart extends React.PureComponent {
                 <ul>
                     {shoppingCart.map((product, i) => (
                         <li key={`cart-item-${i}`}>
-                            {product.product_id} <button onClick={actions.removeFromCart.bind(null, product.product_id)}>Remove from cart</button>
+                            {product.product_id} ({product.amount}) <button onClick={actions.removeFromCart.bind(null, product.product_id)}>Remove from cart</button>
                         </li>
                     ))}
                 </ul>

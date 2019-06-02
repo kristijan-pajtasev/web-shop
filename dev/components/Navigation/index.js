@@ -12,7 +12,7 @@ class Navigation extends React.PureComponent {
 
     render() {
         const { shoppingCart } = this.props;
-        const shoppingCartSize = shoppingCart ? shoppingCart.length : "";
+        const shoppingCartSize = shoppingCart ? shoppingCart.reduce((a, b) => a + b.amount, 0) : "";
 
         return (
             <div>

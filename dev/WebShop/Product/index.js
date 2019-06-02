@@ -24,7 +24,7 @@ const Product = ({product, addProductToCart}) => {
             <div>Length (cm): {product_length_cm}</div>
             <div>Height (cm): {product_height_cm}</div>
             <div>Width (cm): {product_width_cm}</div>
-            <button onClick={addToCart.bind(this, product_id)}>Add to cart</button>
+            <button onClick={addToCart.bind(this, product)}>Add to cart</button>
         </div>
     )
 };
