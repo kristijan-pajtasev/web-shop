@@ -1,8 +1,8 @@
 import React from 'react';
 import ItemsList from './ItemsList';
 import RecomendedItems from './RecomendedItems';
-import {fetchProducts} from '../actions/products';
-import {addToCart} from '../actions/shopping_cart';
+import {fetchProducts} from '../../actions/products';
+import {addToCart} from '../../actions/shopping_cart';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
