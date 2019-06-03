@@ -15,7 +15,7 @@ const Product = ({product, addProductToCart}) => {
     const addToCart = item => addProductToCart(item);
     return (
         <div>
-            <div>Product: {product_id}</div>
+            <div><a href={`/product/${product_id}`}>Product: {product_id}</a></div>
             <div>Category Name: {product_category_name}</div>
             <div>Name length: {product_name_length}</div>
             <div>Description length: {product_description_lenght}</div>
