@@ -15,7 +15,6 @@ const Product = ({ product, addItemToCart }) => {
 
     const addToCart = () => addItemToCart(product);
 
-
     return (
         <div>
             <div>Product: {product_id}</div>
