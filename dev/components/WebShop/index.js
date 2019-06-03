@@ -22,7 +22,7 @@ class WebShop extends React.PureComponent {
     }
 
     render() {
-        const { products, filters, recommendations } = this.props;
+        const {products, filters, recommendations} = this.props;
         if (!products.products || !recommendations.basket) return null;
         return (
             <div>Web shop
@@ -32,7 +32,8 @@ class WebShop extends React.PureComponent {
                            search={filters.search}
                            total={products.total}
                            getProducts={this.props.actions.fetchProducts}/>
-                <RecomendedItems title="You might be also interested" items={recommendations.basket} />
+                <RecomendedItems title="You might be also interested" items={recommendations.basket}
+                                 addItemToCart={this.props.actions.addToCart}/>
             </div>
         )
     }
@@ -44,8 +45,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => {
-    const { products, shoppingCart, filters, recommendations } = state;
-    return { products, shoppingCart, filters, recommendations };
+    const {products, shoppingCart, filters, recommendations} = state;
+    return {products, shoppingCart, filters, recommendations};
 };
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(WebShop);

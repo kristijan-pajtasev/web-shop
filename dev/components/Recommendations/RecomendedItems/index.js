@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import RecommendedProduct from '../RecommendedProduct'
 import './RecommendedItems.less';
 
-const RecomendedItems = ({ items, title }) => {
+const RecomendedItems = ({ items, title, addItemToCart }) => {
     const itemsList = items.map((item, index) => (
         <li key={`item-${index}`}>
-            <RecommendedProduct product={item} />
+            <RecommendedProduct product={item} addItemToCart={addItemToCart} />
         </li>
     ));
     return (

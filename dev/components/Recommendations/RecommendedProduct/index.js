@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Product = ({ product }) => {
+const Product = ({ product, addItemToCart }) => {
     const {
         product_id,
         product_category_name,
@@ -12,6 +12,10 @@ const Product = ({ product }) => {
         product_height_cm,
         product_width_cm
     } = product;
+
+    const addToCart = () => addItemToCart(product);
+
+
     return (
         <div>
             <div>Product: {product_id}</div>
@@ -23,6 +27,7 @@ const Product = ({ product }) => {
             <div>Length (cm): {product_length_cm}</div>
             <div>Height (cm): {product_height_cm}</div>
             <div>Width (cm): {product_width_cm}</div>
+            <button onClick={addToCart}>Add to Cart</button>
         </div>
     )
 };
