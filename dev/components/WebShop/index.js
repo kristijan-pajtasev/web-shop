@@ -1,8 +1,9 @@
 import React from 'react';
 import ItemsList from './ItemsList';
-import RecomendedItems from './RecomendedItems';
+import RecomendedItems from '../Recommendations/RecomendedItems';
 import {fetchProducts} from '../../actions/products';
 import {addToCart} from '../../actions/shopping_cart';
+import {fetchRecommendations} from '../../actions/recommendations';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
@@ -13,6 +14,7 @@ class WebShop extends React.PureComponent {
             shoppingCart: []
         };
         props.actions.fetchProducts();
+        props.actions.fetchRecommendations("BASKET");
     }
 
     addItemToCart(item) {
@@ -20,8 +22,8 @@ class WebShop extends React.PureComponent {
     }
 
     render() {
-        const { products, filters } = this.props;
-        if (!products.products) return null;
+        const { products, filters, recommendations } = this.props;
+        if (!products.products || !recommendations.basket) return null;
         return (
             <div>Web shop
                 <ItemsList addItemToCart={this.props.actions.addToCart}
@@ -30,7 +32,7 @@ class WebShop extends React.PureComponent {
                            search={filters.search}
                            total={products.total}
                            getProducts={this.props.actions.fetchProducts}/>
-                <RecomendedItems items={products.products}/>
+                <RecomendedItems title="You might be also interested" items={recommendations.basket} />
             </div>
         )
     }
@@ -38,12 +40,12 @@ class WebShop extends React.PureComponent {
 
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({fetchProducts, addToCart}, dispatch)
+    actions: bindActionCreators({fetchProducts, addToCart, fetchRecommendations}, dispatch)
 });
 
 const mapStateToProps = state => {
-    const { products, shoppingCart, filters } = state;
-    return { products, shoppingCart, filters };
+    const { products, shoppingCart, filters, recommendations } = state;
+    return { products, shoppingCart, filters, recommendations };
 };
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(WebShop);

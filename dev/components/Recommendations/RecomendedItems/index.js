@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import RecommendedProduct from '../RecommendedProduct'
 import './RecommendedItems.less';
 
-const RecomendedItems = ({items}) => {
+const RecomendedItems = ({ items, title }) => {
     const itemsList = items.map((item, index) => (
         <li key={`item-${index}`}>
             <RecommendedProduct product={item} />
@@ -11,7 +11,7 @@ const RecomendedItems = ({items}) => {
     ));
     return (
         <div>
-            <div>Recommendations</div>
+            <div>{title}</div>
             <ul className="recommended-items-list">
                 {itemsList}
             </ul>

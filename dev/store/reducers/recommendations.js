@@ -1,8 +1,8 @@
 export default (state = {}, action = {}) => {
     switch(action.type) {
         case "SET_RECOMMENDATIONS":
-            const { products, total, page } = action;
-            return Object.assign({}, state, action.recommende);
+            const { recommended } = action;
+            return Object.assign({}, state, recommended);
         default:
             return state;
     }
