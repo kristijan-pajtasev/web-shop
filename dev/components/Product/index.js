@@ -24,7 +24,7 @@ class Product extends React.PureComponent {
             <div>
                 <div className="products-container">
                     <div className="products-list-container">
-                        <Details product={product} addToCart={actions.addToCart}/>
+                        <Details product={product} addProductToCart={actions.addToCart}/>
                     </div>
                     <div className="recommended-products-list-container">
                         <RecommendedItems title="Similar items" items={recommendations.similar}
