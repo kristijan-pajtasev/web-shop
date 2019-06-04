@@ -14,7 +14,7 @@ const ItemsList = ({items, total, page, addItemToCart, getProducts, search}) => 
     const nextPage = () => getProducts(page + 1, search);
     const prevPage = () => getProducts(page - 1, search);
     const firstPage = 1;
-    const lastPage = Math.ceil(total / 10);
+    const lastPage = Math.ceil(total / 12);
 
     return (
         <div>
