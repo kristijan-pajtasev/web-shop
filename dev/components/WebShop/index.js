@@ -1,6 +1,6 @@
 import React from 'react';
 import ItemsList from './ItemsList';
-import RecomendedItems from '../Recommendations/RecomendedItems';
+import RecommendedItems from '../Recommendations/RecomendedItems';
 import {fetchProducts} from '../../actions/products';
 import {addToCart} from '../../actions/shopping_cart';
 import {fetchRecommendations} from '../../actions/recommendations';
@@ -32,8 +32,8 @@ class WebShop extends React.PureComponent {
                            search={filters.search}
                            total={products.total}
                            getProducts={this.props.actions.fetchProducts}/>
-                <RecomendedItems title="You might be also interested" items={recommendations.basket}
-                                 addItemToCart={this.props.actions.addToCart}/>
+                <RecommendedItems title="You might be also interested" items={recommendations.basket}
+                                  addItemToCart={this.props.actions.addToCart}/>
             </div>
         )
     }

@@ -1,9 +1,11 @@
 import config from '../config';
 
-const getAlgorithm = type => {
+const getAlgorithm = (type, id) => {
     switch(type) {
         case "BASKET":
-            return "basket"
+            return "basket";
+        case "SIMILAR":
+            return `similar/${id}`;
     }
 };
 
@@ -18,9 +20,9 @@ const broadcastRecommended = (type, recommended, dispatch) => {
     }
 };
 
-export const fetchRecommendations = type => {
+export const fetchRecommendations = (type, id) => {
     return dispatch => {
-        const algorithm = getAlgorithm(type);
+        const algorithm = getAlgorithm(type, id);
         fetch(`${config.api}/recommendations/${algorithm}`).then(
             res => res.json().then(
                 recommended => {
