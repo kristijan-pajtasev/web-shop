@@ -17,6 +17,11 @@ const Product = ({ product, addItemToCart }) => {
 
     return (
         <div>
+            <div>
+                <i className="material-icons">
+                    {"local_bar"}
+                </i>
+            </div>
             <div><a href={`/product/${product_id}`}>Product: {product_id}</a></div>
             <div>Category Name: {product_category_name}</div>
             <div>Name length: {product_name_length}</div>
