@@ -1,47 +1,76 @@
 .items-list {
-    display: flex;
-    list-style: none;
-    flex-direction: row;
-    width: 100%;
-    flex-wrap: wrap;
-    position: relative;
-    box-sizing: border-box;
-    padding: 10px;
-    margin: 0;
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  position: relative;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 0;
 
-    li {
-        flex: 1;
-        width: 33%;
-        min-width: 33%;
-        max-width: 33px;
-        padding: 10px 10px 30px 10px;
+  li {
+    flex: 1;
+    width: 33%;
+    min-width: 33%;
+    max-width: 33px;
+    padding: 10px 10px 30px 10px;
 
-        &:nth-of-type(n+4) {
-            border-top: thin solid #ccc;
-        }
-
-        &:nth-of-type(3n+1), &:nth-of-type(3n+2) {
-            border-right: thin solid #ccc;
-        }
-
-        .product-list-item {
-            .product-details {
-                display: flex;
-                flex-direction: row;
-
-
-                .product-icon {
-                    max-width: 60px;
-                    flex: 1;
-                    .material-icons {
-                        font-size: 48px;
-                    }
-                }
-                .product-data {
-                    flex: 3;
-                }
-            }
-
-        }
+    &:nth-of-type(n+4) {
+      border-top: thin solid #ccc;
     }
+
+    &:nth-of-type(3n+1), &:nth-of-type(3n+2) {
+      border-right: thin solid #ccc;
+    }
+
+    .product-list-item {
+      .product-details {
+        display: flex;
+        flex-direction: row;
+
+
+        .product-icon {
+          max-width: 60px;
+          flex: 1;
+
+          .material-icons {
+            font-size: 48px;
+          }
+        }
+
+        .product-data {
+          flex: 3;
+        }
+      }
+
+      button {
+        padding: 5px 10px;
+        width: 100%;
+        margin-top: 15px;
+        background: #ccc;
+        color: black;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+.items-list-paging {
+  text-align: center;
+  margin: 15px 0;
+
+  button {
+    width: 100px;
+    margin: 0 10px;
+    padding: 5px 10px;
+    background: #ccc;
+    color: black;
+    font-weight: normal;
+
+    &:disabled {
+      background: #eee;
+      color: #aaa;
+    }
+  }
 }

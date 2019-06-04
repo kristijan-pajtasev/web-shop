@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getCart } from '../../actions/shopping_cart'
 import { setSearchQuery } from '../../actions/products'
+import './Navigation.less';
 
 class Navigation extends React.PureComponent {
     constructor(props) {
@@ -28,20 +29,22 @@ class Navigation extends React.PureComponent {
         const shoppingCartSize = shoppingCart ? shoppingCart.reduce((a, b) => a + b.amount, 0) : "";
 
         return (
-            <div>
+            <div className='navigation-component'>
                 <a href='/#'>
                     <i className="material-icons">
                         home
                     </i>
                 </a>
+                <div className='navigation-search'>
+                    <input type="text" value={search} onChange={this.setSearchValue.bind(this)} />
+                    <button onClick={this.setSearchQuery.bind(this)}>Search</button>
+                </div>
                 <a href='/#/shopping-cart'>
                     <i className="material-icons">
                         shopping_cart
                     </i>
                     <span className="shopping-cart-size">({shoppingCartSize})</span>
                 </a>
-                <input type="text" value={search} onChange={this.setSearchValue.bind(this)} />
-                <button onClick={this.setSearchQuery.bind(this)}>Search</button>
             </div>
         )
     }

@@ -21,7 +21,7 @@ const ItemsList = ({items, total, page, addItemToCart, getProducts, search}) => 
             <ul className="items-list">
                 {itemsList}
             </ul>
-            <div>
+            <div className="items-list-paging">
                 <button disabled={page === firstPage} onClick={prevPage}>Previous</button>
                 <span>{page} / {lastPage}</span>
                 <button disabled={page === lastPage} onClick={nextPage}>Next</button>
