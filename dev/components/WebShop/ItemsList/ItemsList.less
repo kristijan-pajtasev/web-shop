@@ -7,12 +7,34 @@
     position: relative;
     box-sizing: border-box;
     padding: 10px;
+    margin: 0;
 
     li {
         flex: 1;
-        width: 25%;
-        min-width: 25%;
-        max-width: 25px;
+        width: 33%;
+        min-width: 33%;
+        max-width: 33px;
         margin-bottom: 25px;
+        padding: 10px;
+
+        .product-list-item {
+            .product-details {
+                display: flex;
+                flex-direction: row;
+
+
+                .product-icon {
+                    max-width: 60px;
+                    flex: 1;
+                    .material-icons {
+                        font-size: 48px;
+                    }
+                }
+                .product-data {
+                    flex: 3;
+                }
+            }
+
+        }
     }
 }

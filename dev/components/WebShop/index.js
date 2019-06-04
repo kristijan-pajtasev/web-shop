@@ -25,15 +25,21 @@ class WebShop extends React.PureComponent {
         const {products, filters, recommendations} = this.props;
         if (!products.products || !recommendations.basket) return null;
         return (
-            <div>Web shop
-                <ItemsList addItemToCart={this.props.actions.addToCart}
-                           items={products.products}
-                           page={products.page}
-                           search={filters.search}
-                           total={products.total}
-                           getProducts={this.props.actions.fetchProducts}/>
-                <RecommendedItems title="You might be also interested" items={recommendations.basket}
-                                  addItemToCart={this.props.actions.addToCart}/>
+            <div>
+                <div className="products-container">
+                    <div className="products-list-container">
+                        <ItemsList addItemToCart={this.props.actions.addToCart}
+                                   items={products.products}
+                                   page={products.page}
+                                   search={filters.search}
+                                   total={products.total}
+                                   getProducts={this.props.actions.fetchProducts}/>
+                    </div>
+                    <div className="recommended-products-list-container">
+                        <RecommendedItems title="You might be also interested" items={recommendations.basket}
+                                          addItemToCart={this.props.actions.addToCart}/>
+                    </div>
+                </div>
             </div>
         )
     }

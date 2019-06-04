@@ -14,21 +14,18 @@ const Product = ({product, addProductToCart}) => {
     } = product;
     const addToCart = item => addProductToCart(item);
     return (
-        <div>
-            <div>
-                <i className="material-icons">
-                    {"local_bar"}
-                </i>
+        <div className="product-list-item">
+            <div className='product-details'>
+                <div className='product-icon'>
+                    <i className="material-icons">
+                        {"local_bar"}
+                    </i>
+                </div>
+                <div className='product-data'>
+                    <div><a href={`/product/${product_id}`}>{product_id}</a></div>
+                    <div>Category: {product_category_name}</div>
+                </div>
             </div>
-            <div><a href={`/#/product/${product_id}`}>Product: {product_id}</a></div>
-            <div>Category Name: {product_category_name}</div>
-            <div>Name length: {product_name_length}</div>
-            <div>Description length: {product_description_lenght}</div>
-            <div>Photos (qty): {product_photos_qty}</div>
-            <div>Weight (g): {product_weight_g}</div>
-            <div>Length (cm): {product_length_cm}</div>
-            <div>Height (cm): {product_height_cm}</div>
-            <div>Width (cm): {product_width_cm}</div>
             <button onClick={addToCart.bind(this, product)}>Add to cart</button>
         </div>
     )

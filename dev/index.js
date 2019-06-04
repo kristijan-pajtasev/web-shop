@@ -5,6 +5,7 @@ import WebShop from './providers/WebShop'
 import Product from './providers/Product'
 import Navigation from './providers/Navigation'
 import ShoppingCart from './providers/ShoppingCart'
+import './WebShop.less';
 
 const App = () => {
     return (

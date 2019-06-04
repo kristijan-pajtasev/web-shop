@@ -1,9 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import RecommendedItems from '../Recommendations/RecomendedItems';
-import { fetchProduct } from '../../actions/products';
-import { addToCart } from '../../actions/shopping_cart';
-import { bindActionCreators } from 'redux';
+import {fetchProduct} from '../../actions/products';
+import {addToCart} from '../../actions/shopping_cart';
+import {bindActionCreators} from 'redux';
 import Details from './Details';
 import {fetchRecommendations} from '../../actions/recommendations';
 
@@ -16,15 +16,21 @@ class Product extends React.PureComponent {
     }
 
     render() {
-        const { product, actions, recommendations } = this.props;
+        const {product, actions, recommendations} = this.props;
 
-        if(!product || !recommendations.similar) return null;
+        if (!product || !recommendations.similar) return null;
 
         return (
             <div>
-                <Details product={product} addToCart={actions.addToCart}/>
-                <RecommendedItems title="Similar items" items={recommendations.similar}
-                                  addItemToCart={this.props.actions.addToCart}/>
+                <div className="products-container">
+                    <div className="products-list-container">
+                        <Details product={product} addToCart={actions.addToCart}/>
+                    </div>
+                    <div className="recommended-products-list-container">
+                        <RecommendedItems title="Similar items" items={recommendations.similar}
+                                          addItemToCart={this.props.actions.addToCart}/>
+                    </div>
+                </div>
             </div>
         )
     }
@@ -32,12 +38,12 @@ class Product extends React.PureComponent {
 
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({ fetchProduct, addToCart, fetchRecommendations }, dispatch)
+    actions: bindActionCreators({fetchProduct, addToCart, fetchRecommendations}, dispatch)
 });
 
 const mapStateToProps = state => {
-    const { product, recommendations } = state;
-    return { product, recommendations };
+    const {product, recommendations} = state;
+    return {product, recommendations};
 };
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(Product);

@@ -17,8 +17,8 @@ const Product = ({ product, addItemToCart }) => {
                     </i>
                 </div>
                 <div className='recommended-item-data'>
-                    <div><a href={`/product/${product_id}`}>Product: {product_id}</a></div>
-                    <div>Category Name: {product_category_name}</div>
+                    <div><a href={`/product/${product_id}`}>{product_id}</a></div>
+                    <div>Category: {product_category_name}</div>
                 </div>
             </div>
             <button onClick={addToCart}>Add to Cart</button>
