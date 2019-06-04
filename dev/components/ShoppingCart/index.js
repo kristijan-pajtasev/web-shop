@@ -1,19 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getCart, buy, removeFromCart } from '../../actions/shopping_cart';
+import {getCart, buy, removeFromCart, addToCart} from '../../actions/shopping_cart';
+import RecommendedItems from '../Recommendations/RecomendedItems';
+import {fetchRecommendations} from "../../actions/recommendations";
 
 class ShoppingCart extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {};
         props.actions.getCart();
+        props.actions.fetchRecommendations("BASKET");
     }
 
     render() {
-        const { shoppingCart, actions } = this.props;
+        const { shoppingCart, actions, recommendations } = this.props;
 
-        if(!shoppingCart) return null;
+        if(!shoppingCart || !recommendations.basket) return null;
 
         return (
             <div>
@@ -25,18 +28,20 @@ class ShoppingCart extends React.PureComponent {
                     ))}
                 </ul>
                 <button onClick={actions.buy}>Buy</button>
+                <RecommendedItems title="You might be also interested" items={recommendations.basket}
+                                  addItemToCart={this.props.actions.addToCart}/>
             </div>
         )
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({ getCart, buy, removeFromCart }, dispatch)
+    actions: bindActionCreators({ getCart, buy, removeFromCart, fetchRecommendations, addToCart }, dispatch)
 });
 
 const mapStateToProps = state => {
-    const { shoppingCart } = state;
-    return { shoppingCart };
+    const { shoppingCart, recommendations } = state;
+    return { shoppingCart, recommendations };
 };
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(ShoppingCart);
