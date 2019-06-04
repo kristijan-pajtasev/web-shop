@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
 import ReactDOM from 'react-dom';
 import WebShop from './providers/WebShop'
 import Product from './providers/Product'

@@ -29,8 +29,8 @@ class Navigation extends React.PureComponent {
 
         return (
             <div>
-                <a href='/'>Home</a>
-                <a href='/shopping-cart'>Cart ({shoppingCartSize})</a>
+                <a href='/#'>Home</a>
+                <a href='/#/shopping-cart'>Cart ({shoppingCartSize})</a>
                 <input type="text" value={search} onChange={this.setSearchValue.bind(this)} />
                 <button onClick={this.setSearchQuery.bind(this)}>Search</button>
             </div>
