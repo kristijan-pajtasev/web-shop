@@ -1,4 +1,5 @@
 import config from '../config';
+import {fetchRecommendations} from './recommendations'
 
 export const addToCart = (product) => {
     const { product_id } = product;
@@ -15,6 +16,7 @@ export const addToCart = (product) => {
         fetch(`${config.api}/shopping-cart`, options)
             .then(res => {
                 getCart()(dispatch);
+                fetchRecommendations('BASKET')(dispatch);
             })
     }
 };
@@ -55,8 +57,9 @@ export const removeFromCart = (product_id) => {
     };
     return dispatch => {
         fetch(`${config.api}/shopping-cart`, options)
-            .then(res =>
-                dispatch({type: "REMOVE_ITEM", product_id})
-            )
+            .then(res => {
+                dispatch({type: "REMOVE_ITEM", product_id});
+                fetchRecommendations('BASKET')(dispatch);
+            })
     }
 };
