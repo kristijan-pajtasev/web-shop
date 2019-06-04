@@ -1,7 +1,5 @@
 .recommended-items-list {
-    display: flex;
     list-style: none;
-    flex-direction: row;
     width: 100%;
     flex-wrap: wrap;
     position: relative;
@@ -9,10 +7,27 @@
     padding: 10px;
 
     li {
-        flex: 1;
-        width: 25%;
-        min-width: 25%;
-        max-width: 25px;
+        width: 100%;
         margin-bottom: 25px;
+
+        .recommended-item {
+            .recommended-item-details {
+                display: flex;
+                flex-direction: row;
+
+
+                .recommended-item-icon {
+                    max-width: 60px;
+                    flex: 1;
+                    .material-icons {
+                        font-size: 48px;
+                    }
+                }
+                .recommended-item-data {
+                    flex: 3;
+                }
+            }
+
+        }
     }
 }
