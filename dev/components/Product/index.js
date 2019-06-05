@@ -15,6 +15,13 @@ class Product extends React.PureComponent {
         props.actions.fetchRecommendations("SIMILAR", props.productId);
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(this.props.product && this.props.product.product_id !== this.props.productId) {
+            this.props.actions.fetchProduct(this.props.productId);
+            this.props.actions.fetchRecommendations("SIMILAR", this.props.productId);
+        }
+    }
+
     render() {
         const {product, actions, recommendations} = this.props;
 
