@@ -13,8 +13,20 @@
     flex: 1;
     width: 33%;
     min-width: 33%;
-    max-width: 33px;
+    max-width: 33%;
     padding: 10px 10px 30px 10px;
+
+    @media screen and (max-width: 1440px) {
+      width: 50%;
+      min-width: 50%;
+      max-width: 50%;
+    }
+
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+      min-width: 100%;
+      max-width: 10%;
+    }
 
     &:nth-of-type(n+4) {
       border-top: thin solid #ccc;

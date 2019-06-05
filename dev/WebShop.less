@@ -29,6 +29,10 @@ button {
   display: flex;
   flex-direction: row;
 
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
+
   .products-list-container {
     flex: 4
   }
@@ -40,5 +44,11 @@ button {
     max-width: 400px;
     min-width: 400px;
     width: 400px;
+
+    @media screen and (max-width: 1024px) {
+      max-width: 100%;
+      min-width: 100%;
+      width: 100%;
+    }
   }
 }
